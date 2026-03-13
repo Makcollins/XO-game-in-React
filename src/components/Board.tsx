@@ -1,30 +1,13 @@
 import Square from "./Square";
 
-function Board({xIsNext, squares, onPlay}:any) {
-  // const [squares, setSquares] = useState(Array(9).fill(null));
-  // const [xIsNext, setXIsNext] = useState(true);
-
-  const winner = calculateWinner(squares);
-  let status;
-  if (winner) {
-    status = "Winner: " + winner;
-  } else {
-    status = "Next player: " + (xIsNext ? "X" : "O");
-  }
-
-  function handleValues(i: number) {
-    if (squares[i] || calculateWinner(squares)) {
-      return;
-    }
-    const nextSquares = squares.slice();
-    nextSquares[i] = xIsNext ? "X" : "O";
-    // setSquares(nextSquares);
-    // setXIsNext(!xIsNext);
-    onPlay(nextSquares);
-  }
+function Board({ status, statusTitle, squares, handleValues }: any) {
+  
   return (
-    <>
-      <div className="status">{status}</div>
+    <div className="game-board">
+      <div className="status">
+        <span><strong>{statusTitle} :</strong></span>
+        <span> {status}</span>
+      </div>
       <div className="board-row">
         <Square val={squares[0]} onSquareClick={() => handleValues(0)} />
         <Square val={squares[1]} onSquareClick={() => handleValues(1)} />
@@ -40,7 +23,7 @@ function Board({xIsNext, squares, onPlay}:any) {
         <Square val={squares[7]} onSquareClick={() => handleValues(7)} />
         <Square val={squares[8]} onSquareClick={() => handleValues(8)} />
       </div>
-    </>
+    </div>
   )
 
 }
