@@ -1,11 +1,14 @@
-import { useState } from "react";
-import Board from "./components/Board";
 import Game from "./components/Game";
 
 function App() {
   
   return (
+    <>
+    <div>
+      <img src="/MakUI-logos.png" alt="" />
+    </div>
     <Game />
+    </>
   );
 }
 
