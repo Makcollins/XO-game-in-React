@@ -12,4 +12,4 @@ function App() {
   );
 }
 
-export default Game;
+export default App;
