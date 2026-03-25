@@ -1,5 +1,3 @@
-import React from 'react'
-
 const GameState = ({ status, statusTitle }: any) => {
     let gameStatus = '';
     let statusT = ''
